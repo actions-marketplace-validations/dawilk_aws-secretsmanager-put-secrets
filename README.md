@@ -1,5 +1,7 @@
 # Put secrets in AWS Secrets Manager from GitHub Actions
 
+> This action is functionally the CREATE/PUT counterpart to the GET version: [aws-actions/aws-secretsmanager-get-secrets_](https://github.com/aws-actions/aws-secretsmanager-get-secrets).
+
 This GitHub Action creates or updates secrets in AWS Secrets Manager. Use it to sync secrets from GitHub (e.g. `${{ secrets.API_KEY }}`) into AWS, or to keep AWS secrets in sync with your workflow.
 
 The action checks if the secret exists, compares the value, and only updates when needed. If the secret does not exist, it creates it. Optional tags (including GitHub Actions workflow run metadata) are merged and applied.
@@ -14,7 +16,7 @@ Configure AWS credentials before this step using [configure-aws-credentials](htt
 
 ```yaml
 - name: Configure AWS credentials
-  uses: aws-actions/configure-aws-credentials@v4
+  uses: aws-actions/configure-aws-credentials@v6
   with:
     role-to-assume: arn:aws:iam::123456789012:role/MyRole
     aws-region: us-east-1
